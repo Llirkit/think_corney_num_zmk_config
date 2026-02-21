@@ -23,28 +23,28 @@
       RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5)
     >;
   };
-};
 
-&kscan0 {
-  compatible = "zmk,kscan-gpio-matrix";
-  diode-direction = "col2row";
+  kscan0: kscan0 {
+    compatible = "zmk,kscan-gpio-matrix";
+    diode-direction = "col2row";
 
-  /* R0=P8, R1=P4, R2=P5, R3=P6, R4=P7 */
-  row-gpios = <
-    &pro_micro 8 GPIO_ACTIVE_HIGH
-    &pro_micro 4 GPIO_ACTIVE_HIGH
-    &pro_micro 5 GPIO_ACTIVE_HIGH
-    &pro_micro 6 GPIO_ACTIVE_HIGH
-    &pro_micro 7 GPIO_ACTIVE_HIGH
-  >;
+    /* R0=P8, R1=P4, R2=P5, R3=P6, R4=P7 */
+    row-gpios = <
+      &pro_micro 8 GPIO_ACTIVE_HIGH
+      &pro_micro 4 GPIO_ACTIVE_HIGH
+      &pro_micro 5 GPIO_ACTIVE_HIGH
+      &pro_micro 6 GPIO_ACTIVE_HIGH
+      &pro_micro 7 GPIO_ACTIVE_HIGH
+    >;
 
-  /* C0=P21, C1=P20, C2=P19, C3=P18, C4=P15, C5=P14 */
-  col-gpios = <
-    &pro_micro 21 GPIO_ACTIVE_HIGH
-    &pro_micro 20 GPIO_ACTIVE_HIGH
-    &pro_micro 19 GPIO_ACTIVE_HIGH
-    &pro_micro 18 GPIO_ACTIVE_HIGH
-    &pro_micro 15 GPIO_ACTIVE_HIGH
-    &pro_micro 14 GPIO_ACTIVE_HIGH
-  >;
+    /* C0=P21, C1=P20, C2=P19, C3=P18, C4=P15, C5=P14 */
+    col-gpios = <
+      &pro_micro 21 GPIO_ACTIVE_HIGH
+      &pro_micro 20 GPIO_ACTIVE_HIGH
+      &pro_micro 19 GPIO_ACTIVE_HIGH
+      &pro_micro 18 GPIO_ACTIVE_HIGH
+      &pro_micro 15 GPIO_ACTIVE_HIGH
+      &pro_micro 14 GPIO_ACTIVE_HIGH
+    >;
+  };
 };
