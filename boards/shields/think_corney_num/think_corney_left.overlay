@@ -8,6 +8,10 @@
    DPD=P2 (MOSI)
    DPC=P3 (SCK)
    DPE=P9 (CS) */
+&default_transform {
+  col-offset = <0>;
+};
+
 &nice_view_spi {
   status = "okay";
   cs-gpios = <&pro_micro 9 GPIO_ACTIVE_LOW>;
