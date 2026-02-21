@@ -1,0 +1,35 @@
+#include "think_corney.dtsi"
+
+/ {
+  compatible = "zmk,keyboard-think-corney-right";
+};
+
+&nice_view_spi {
+  status = "okay";
+  cs-gpios = <&pro_micro 9 GPIO_ACTIVE_LOW>;
+};
+
+/ {
+  /* PS/2 TrackPoint / Mouse (infused-kim module)
+     IMPORTANT: the side with the TrackPoint MUST be the central half. */
+  gpio_ps2: gpio_ps2 {
+    status = "okay";
+    compatible = "gpio-ps2";
+    scl-gpios = <&pro_micro 1 GPIO_ACTIVE_HIGH>;
+    sda-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;
+  };
+
+  mouse_ps2: mouse_ps2 {
+    status = "okay";
+    compatible = "zmk,input-mouse-ps2";
+    ps2-device = <&gpio_ps2>;
+    /* Optional: uncomment if you have a POR/reset wire to the TrackPoint
+       rst-gpios = <&pro_micro 9 GPIO_ACTIVE_HIGH>; */
+  };
+
+  mouse_ps2_input_listener: mouse_ps2_input_listener {
+    compatible = "zmk,input-listener-ps2";
+    status = "okay";
+    device = <&mouse_ps2>;
+  };
+};

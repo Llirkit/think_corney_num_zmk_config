@@ -1,0 +1,15 @@
+if ZMK_KEYBOARD_THINK_CORNEY
+config ZMK_SPLIT
+    default y
+endif
+
+# Split role: TrackPoint is on the RIGHT half, so make RIGHT the central
+if ZMK_SHIELD_THINK_CORNEY_RIGHT
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+endif
+
+if ZMK_SHIELD_THINK_CORNEY_LEFT
+config ZMK_SPLIT_ROLE_PERIPHERAL
+    default y
+endif
