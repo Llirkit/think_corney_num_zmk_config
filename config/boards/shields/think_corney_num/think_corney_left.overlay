@@ -1,0 +1,14 @@
+#include "think_corney.dtsi"
+
+/ {
+  compatible = "zmk,keyboard-think-corney-left";
+};
+
+/* nice!view SPI:
+   DPD=P2 (MOSI)
+   DPC=P3 (SCK)
+   DPE=P9 (CS) */
+&nice_view_spi {
+  status = "okay";
+  cs-gpios = <&pro_micro 9 GPIO_ACTIVE_LOW>;
+};

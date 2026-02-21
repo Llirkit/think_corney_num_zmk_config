@@ -1,0 +1,22 @@
+#include "think_corney.dtsi"
+
+/ {
+  compatible = "zmk,keyboard-think-corney-right";
+};
+
+&nice_view_spi {
+  status = "okay";
+  cs-gpios = <&pro_micro 9 GPIO_ACTIVE_LOW>;
+};
+
+/ {
+  ps2_tp: ps2_trackpoint {
+    /* ВНИМАНИЕ: compatible/свойства зависят от модуля infused-kim.
+       Если сборка скажет "unknown node", пришлю точный вариант под их binding. */
+    compatible = "zmk,ps2-mouse";
+    status = "okay";
+
+    clk-gpios = <&pro_micro 1 GPIO_ACTIVE_HIGH>;   /* TPC */
+    data-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;  /* TPD */
+  };
+};

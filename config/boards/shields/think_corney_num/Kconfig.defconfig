@@ -1,0 +1,4 @@
+if ZMK_KEYBOARD_THINK_CORNEY
+config ZMK_SPLIT
+    default y
+endif
