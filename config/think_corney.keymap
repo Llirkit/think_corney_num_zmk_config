@@ -1,6 +1,23 @@
 #include <behaviors.dtsi>
+/*
+ * Mouse/pointing bindings moved around over time in ZMK.
+ * - Newer ZMK: dt-bindings/zmk/pointing.h (+ CONFIG_ZMK_POINTING)
+ * - Older ZMK / older mouse PR snapshots: dt-bindings/zmk/mouse.h and/or
+ *   behaviors/mouse_keys.dtsi (+ CONFIG_ZMK_MOUSE)
+ *
+ * Using __has_include keeps this config building across both.
+ */
+#if __has_include(<behaviors/mouse_keys.dtsi>)
+#include <behaviors/mouse_keys.dtsi>
+#endif
+
 #include <dt-bindings/zmk/keys.h>
+
+#if __has_include(<dt-bindings/zmk/pointing.h>)
 #include <dt-bindings/zmk/pointing.h>
+#else
+#include <dt-bindings/zmk/mouse.h>
+#endif
 
 / {
   keymap {
