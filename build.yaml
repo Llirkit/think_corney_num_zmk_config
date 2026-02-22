@@ -1,5 +1,7 @@
 include:
   - board: nice_nano@2.0.0
     shield: think_corney_left
+    artifact-name: think-corney-left
   - board: nice_nano@2.0.0
     shield: think_corney_right
+    artifact-name: think-corney-right

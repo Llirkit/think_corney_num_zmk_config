@@ -1,26 +1,59 @@
+/*
+ * Default keymap for ThinkCorney (54 keys)
+ */
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
+
+#define NAV 1
+#define NUM 2
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        base_layer {
             bindings = <
-                /* Left half (6x4) then Right half (6x4), then thumbs (3+3) */
+                /* Row 0 */
+                &kp Q   &kp W   &kp E   &kp R   &kp T   &kp Y      &kp U     &kp I     &kp O     &kp P     &kp LBKT  &kp RBKT
+                /* Row 1 */
+                &kp A   &kp S   &kp D   &kp F   &kp G   &kp H      &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp BSLH
+                /* Row 2 */
+                &kp Z   &kp X   &kp C   &kp V   &kp B   &kp N      &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp MINUS &kp EQUAL
+                /* Row 3 */
+                &kp LGUI &kp LALT &kp LCTRL &kp LSHFT &kp ESC &kp TAB      &kp ENTER &kp SPACE &kp BSPC  &kp RSHFT &kp RCTRL &kp RALT
+                /* Thumbs (6) */
+                &mo NAV &mo NUM &kp SPACE   &kp ENTER &kp BSPC &kp DEL
+            >;
+        };
 
-                /* Row 0 (num) */
-                &kp Q &kp W &kp E &kp R &kp T &kp Y      &kp U &kp I &kp O &kp P &kp LBKT &kp RBKT
-                /* Row 1 (top) */
-                &kp A &kp S &kp D &kp F &kp G &kp H      &kp J &kp K &kp L &kp SEMI &kp SQT &kp BSPC
-                /* Row 2 (home) */
-                &kp Z &kp X &kp C &kp V &kp B &kp N      &kp M &kp COMMA &kp DOT &kp FSLH &kp ENTER &kp ESC
-                /* Row 3 (bottom) */
-                &kp LCTL &kp LALT &kp LGUI &kp LSHFT &kp TAB &kp SPACE   &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp MINUS &kp EQUAL
+        nav_layer {
+            bindings = <
+                /* Row 0 */
+                &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6     &kp HOME &kp UP   &kp END  &kp PG_UP &kp INS  &kp PSCRN
+                /* Row 1 */
+                &trans  &trans  &trans  &trans  &kp CAPS &kp GRAVE  &kp LEFT &kp DOWN &kp RGHT &kp PG_DN &trans   &trans
+                /* Row 2 */
+                &trans  &trans  &trans  &trans  &trans  &trans     &trans   &trans   &trans   &trans    &trans   &trans
+                /* Row 3 */
+                &trans  &trans  &trans  &trans  &trans  &trans     &trans   &trans   &trans   &trans    &trans   &trans
+                /* Thumbs */
+                &trans  &trans  &trans   &trans  &trans  &trans
+            >;
+        };
 
-                /* Thumbs: left (C3,C4,C5) then right (C9,C10,C11) */
-                &kp BSPC &kp RET &kp DEL    &kp SPACE &kp RSHFT &kp RCTRL
+        num_layer {
+            bindings = <
+                /* Row 0 */
+                &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6          &kp N7 &kp N8 &kp N9 &kp N0 &kp KP_SLASH &kp KP_ASTERISK
+                /* Row 1 */
+                &trans &trans &trans &trans &trans &trans          &kp KP_7 &kp KP_8 &kp KP_9 &kp KP_MINUS &trans &trans
+                /* Row 2 */
+                &trans &trans &trans &trans &trans &trans          &kp KP_4 &kp KP_5 &kp KP_6 &kp KP_PLUS  &trans &trans
+                /* Row 3 */
+                &trans &trans &trans &trans &trans &trans          &kp KP_1 &kp KP_2 &kp KP_3 &kp KP_ENTER &trans &trans
+                /* Thumbs */
+                &trans &trans &kp KP_0   &kp KP_DOT &trans &trans
             >;
         };
     };
