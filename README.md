@@ -35,3 +35,7 @@ west build -b nice_nano_v2 -d build/right -- -DSHIELD=think_corney_right -DZMK_C
 
 Then flash the resulting UF2 files to each nice!nano.
 
+
+
+## Notes
+- This repo includes `config/west.yml` so the upstream ZMK build workflow can `west init -l config`.

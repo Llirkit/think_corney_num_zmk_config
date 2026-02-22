@@ -1,0 +1,9 @@
+# Build artifacts
+build/
+zephyr/
+.zmk/
+.west/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
