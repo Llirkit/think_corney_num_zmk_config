@@ -30,9 +30,9 @@
         nav_layer {
             bindings = <
                 /* Row 0 */
-                &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6     &kp HOME &kp UP   &kp END  &kp PG_UP &kp INS  &kp PSCRN
+                &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6     &kp HOME &kp UP   &kp END  &kp PG_UP &kp INSERT  &kp PRINTSCREEN
                 /* Row 1 */
-                &trans  &trans  &trans  &trans  &kp CAPS &kp GRAVE  &kp LEFT &kp DOWN &kp RGHT &kp PG_DN &trans   &trans
+                &trans  &trans  &trans  &trans  &kp CAPSLOCK &kp GRAVE  &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN &trans   &trans
                 /* Row 2 */
                 &trans  &trans  &trans  &trans  &trans  &trans     &trans   &trans   &trans   &trans    &trans   &trans
                 /* Row 3 */

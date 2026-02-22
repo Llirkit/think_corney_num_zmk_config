@@ -1,5 +1,0 @@
-#include "think_corney.dtsi"
-/* Right half: offset columns by 6 so its local cols 0..5 map to cols 6..11 */
-&default_transform {
-    col-offset = <6>;
-};
