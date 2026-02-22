@@ -1,0 +1,10 @@
+file_format: "1"
+id: think_corney
+name: ThinkCorney
+type: shield
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - think_corney_left
+  - think_corney_right

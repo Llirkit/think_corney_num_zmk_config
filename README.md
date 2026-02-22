@@ -1,16 +1,37 @@
-# ThinkCorney ZMK config (nice!nano + nice!view + TrackPoint)
+# ThinkCorney ZMK config (nice!nano v2, split, central = right)
 
-Что внутри:
-- Shield: `think_corney_left` и `think_corney_right`
-- Split: правая половина = CENTRAL (TrackPoint на правой половине)
-- Дисплеи: nice!view на обеих половинах
-- TrackPoint: PS/2 на правой половине (D1=CLK, D0=DATA)
+This repository contains:
+- a custom ZMK shield definition for **ThinkCorney** (split keyboard)
+- a starter keymap you can customize
 
-## GitHub Actions
-Файл `config/build.yaml` уже настроен на сборку 2х прошивок:
-- `nice_nano_v2 + think_corney_left + nice_view`
-- `nice_nano_v2 + think_corney_right + nice_view`
+## What gets built
+- `think_corney_left` (peripheral)
+- `think_corney_right` (central)
 
-## Важно
-- Если сборка ругнётся на `&spi1`, замени на `&spi0` в обоих overlay:
-  `boards/shields/think_corney/think_corney_left.overlay` и `think_corney_right.overlay`.
+## Pinout (from your Ergogen nets)
+Matrix is **col2row** with diodes from column -> row.
+
+Columns (C0..C5): Pro Micro pins 21, 20, 19, 18, 15, 14  
+Rows (R0..R4): Pro Micro pins 8, 4, 5, 6, 7
+
+Row meaning:
+- R0: num row
+- R1: top row
+- R2: home row
+- R3: bottom row
+- R4: thumb row
+
+Thumb keys use row R4 and columns C3..C5.
+
+## Building
+### GitHub Actions
+Push to GitHub and run the workflow that uses `build.yaml`.
+
+### Local (example)
+```sh
+west build -b nice_nano_v2 -d build/left -- -DSHIELD=think_corney_left -DZMK_CONFIG="$(pwd)/config"
+west build -b nice_nano_v2 -d build/right -- -DSHIELD=think_corney_right -DZMK_CONFIG="$(pwd)/config"
+```
+
+Then flash the resulting UF2 files to each nice!nano.
+

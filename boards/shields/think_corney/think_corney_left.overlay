@@ -1,0 +1,2 @@
+#include "think_corney.dtsi"
+/* Left half: no column offset (left occupies cols 0..5 in default_transform) */
