@@ -8,3 +8,8 @@
                 <&pro_micro 15 GPIO_ACTIVE_HIGH>,
                 <&pro_micro 14 GPIO_ACTIVE_HIGH>;
 };
+
+/* Left half is peripheral; shift its columns by 6 in the composite matrix */
+&default_transform {
+    col-offset = <6>;
+};
