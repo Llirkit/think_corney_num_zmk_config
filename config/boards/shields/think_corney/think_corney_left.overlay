@@ -1,15 +1,15 @@
 #include "think_corney.dtsi"
 
 &kscan0 {
-    col-gpios = <&pro_micro 21 GPIO_ACTIVE_HIGH>,
-                <&pro_micro 20 GPIO_ACTIVE_HIGH>,
-                <&pro_micro 19 GPIO_ACTIVE_HIGH>,
-                <&pro_micro 18 GPIO_ACTIVE_HIGH>,
-                <&pro_micro 15 GPIO_ACTIVE_HIGH>,
-                <&pro_micro 14 GPIO_ACTIVE_HIGH>;
+    col-gpios = <&pro_micro 21 GPIO_ACTIVE_LOW>,
+            <&pro_micro 20 GPIO_ACTIVE_LOW>,
+            <&pro_micro 19 GPIO_ACTIVE_LOW>,
+            <&pro_micro 18 GPIO_ACTIVE_LOW>,
+            <&pro_micro 15 GPIO_ACTIVE_LOW>,
+            <&pro_micro 14 GPIO_ACTIVE_LOW>;
 };
 
-/* Left half is peripheral; shift its columns by 6 in the composite matrix */
+/* Left half; shift its columns by 6 in the composite matrix */
 &default_transform {
     col-offset = <6>;
 };
