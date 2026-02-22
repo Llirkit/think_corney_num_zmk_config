@@ -29,8 +29,8 @@ Push to GitHub and run the workflow that uses `build.yaml`.
 
 ### Local (example)
 ```sh
-west build -b nice_nano_v2 -d build/left -- -DSHIELD=think_corney_left -DZMK_CONFIG="$(pwd)/config"
-west build -b nice_nano_v2 -d build/right -- -DSHIELD=think_corney_right -DZMK_CONFIG="$(pwd)/config"
+west build -b nice_nano@2.0.0 -d build/left -- -DSHIELD=think_corney_left -DZMK_CONFIG="$(pwd)/config"
+west build -b nice_nano@2.0.0 -d build/right -- -DSHIELD=think_corney_right -DZMK_CONFIG="$(pwd)/config"
 ```
 
 Then flash the resulting UF2 files to each nice!nano.
