@@ -47,10 +47,10 @@
         wakeup-source;
         diode-direction = "col2row";
 
-        row-gpios = <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>, /* R0: P1.14 */
-            <&gpio1 18 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>, /* R1: P1.18 */
-            <&gpio1 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>, /* R2: P1.17 */
-            <&gpio1 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>, /* R3: P1.16 */
-            <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* R4: P1.15 */
+        row-gpios = <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, /* R0: P1.04 */
+            <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, /* R1: P0.2 */
+            <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, /* R2: P0.24 */
+            <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, /* R3: P1.00 */
+            <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; /* R4: P0.11 */
     };
 };
