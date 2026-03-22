@@ -84,3 +84,7 @@ The configuration was made self-contained inside `config/`:
 
 ### Result
 Both halves now avoid the missing-header failure caused by external relative paths from `ZMK_CONFIG`.
+
+## v3 fixes
+- Defined `nice_view_spi` explicitly in `boards/shields/think_corney/think_corney.dtsi` as a label on `&spi0` with proper pinctrl and CS pin. This fixes the `undefined node label 'nice_view_spi'` devicetree parse error on both halves.
+- Fixed a malformed binding row in `config/base.keymap` (`&none &kp LG(V)`) that would have become the next keymap parse failure after the DTS issue.
