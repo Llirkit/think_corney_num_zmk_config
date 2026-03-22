@@ -1,0 +1,4 @@
+name: zmk-keyboard-think-corney
+build:
+  settings:
+    board_root: .
