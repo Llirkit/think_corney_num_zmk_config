@@ -1,5 +1,0 @@
-/*
- * TrackPoint/PS2 hardware tuning now lives in
- * boards/shields/think_corney/think_corney_right.overlay so the left-half build
- * does not reference right-only devicetree labels.
- */

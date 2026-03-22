@@ -50,3 +50,37 @@ git add config_base zephyr/module.yml \
   config/includes/mouse_tp.dtsi
 git commit -m "Fix ThinkCorney ZMK module structure and TrackPoint/display config"
 ```
+
+## Additional fix after GitHub Actions build failure
+
+### Symptom
+Both left and right builds failed during devicetree preprocessing with:
+
+```
+fatal error: ../zmk-nodefree-config/keypos_def/keypos_42keys.h: No such file or directory
+```
+
+### Root cause
+ZMK GitHub Actions copies and mounts `config/` as `ZMK_CONFIG=/tmp/zmk-config/config`.
+That means relative includes in `config/think_corney.keymap` cannot safely reference sibling directories outside `config/`, such as:
+
+- `../zmk-nodefree-config/...`
+- `../config_base/...`
+
+Those paths exist in the repository tree, but not in the runtime layout used by the build job.
+
+### Fix applied
+The configuration was made self-contained inside `config/`:
+
+- copied `config_base/config/base.keymap` to `config/base.keymap`
+- copied `config_base/config/includes/*` to `config/includes/*`
+- copied `zmk-nodefree-config/keypos_def/*` to `config/zmk-nodefree-config/keypos_def/*`
+- changed `config/think_corney.keymap` includes to:
+
+```c
+#include "zmk-nodefree-config/keypos_def/keypos_42keys.h"
+#include "base.keymap"
+```
+
+### Result
+Both halves now avoid the missing-header failure caused by external relative paths from `ZMK_CONFIG`.
