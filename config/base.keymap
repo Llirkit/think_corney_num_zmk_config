@@ -29,6 +29,10 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #ifdef HAS_UROB
+#include <behaviors/num_word.dtsi>
+#endif
+
+#ifdef HAS_UROB
 #include <dt-bindings/zmk/pointing.h>
 #endif
 

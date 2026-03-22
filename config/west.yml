@@ -21,6 +21,11 @@ manifest:
       remote: infused-kim
       revision: main
 
+    # Auto-layer module required for &num_word when HAS_UROB is enabled
+    - name: zmk-auto-layer
+      remote: urob
+      revision: main
+
     # Fallback if the PS/2 module breaks against upstream main again:
     # - name: zmk
     #   remote: infused-kim

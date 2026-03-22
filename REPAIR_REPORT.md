@@ -88,3 +88,10 @@ Both halves now avoid the missing-header failure caused by external relative pat
 ## v3 fixes
 - Defined `nice_view_spi` explicitly in `boards/shields/think_corney/think_corney.dtsi` as a label on `&spi0` with proper pinctrl and CS pin. This fixes the `undefined node label 'nice_view_spi'` devicetree parse error on both halves.
 - Fixed a malformed binding row in `config/base.keymap` (`&none &kp LG(V)`) that would have become the next keymap parse failure after the DTS issue.
+
+
+## v4 fixes
+- Replaced invalid reference override `&caps_word_capslock { ... }` with a real custom behavior node `caps_word_capslock: caps_word_capslock { compatible = "zmk,behavior-caps-word"; ... }`. Current ZMK officially supports creating additional caps-word instances this way.
+- Removed obsolete `disable-on-keys` use from that block; upstream caps-word docs expose `continue-list`/`mods`, not `disable-on-keys`.
+- Added `zmk-auto-layer` to `config/west.yml` because `HAS_UROB` + `&num_word` require that external module.
+- Added `#include <behaviors/num_word.dtsi>` under `HAS_UROB` in `config/base.keymap` so the `&num_word` label is defined during keymap preprocessing.

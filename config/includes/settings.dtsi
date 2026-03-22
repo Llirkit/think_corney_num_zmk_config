@@ -35,12 +35,14 @@
 };
 
 #ifdef HAS_CAPSLOCK
-    &caps_word_capslock {
-        disable-on-keys = <
-            SPACE TAB ENTER ESCAPE
-            COMMA DOT SEMI COLON QUESTION EXCLAMATION
-            SLASH BACKSLASH SINGLE_QUOTE DOUBLE_QUOTES GRAVE
-            LPAR RPAR LBKT RBKT LBRC RBRC LT GT
+    caps_word_capslock: caps_word_capslock {
+        compatible = "zmk,behavior-caps-word";
+        #binding-cells = <0>;
+        continue-list = <
+          UNDERSCORE MINUS
+          LCTRL LALT LGUI LSHFT
+          RCTRL RALT RGUI RSHFT
+          BACKSPACE
         >;
     };
 #endif
