@@ -1,4 +1,0 @@
-/*
- * Legacy compatibility filename kept for older tooling; real HWMv2 builds use
- * nice_nano_nrf52840_zmk.overlay.
- */
