@@ -1,3 +1,0 @@
-[submodule "config_base"]
-	path = config_base
-	url = git@github.com:infused-kim/zmk-config.git
