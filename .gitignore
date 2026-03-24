@@ -4,7 +4,8 @@
 # Local west workspace and fetched dependencies
 /.west/
 /zmk/
-/zephyr/
+/zephyr/*
+!/zephyr/module.yml
 /modules/
 /kb_zmk_ps2_mouse_trackpoint_driver/
 /zmk-auto-layer/
