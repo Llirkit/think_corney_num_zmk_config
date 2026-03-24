@@ -156,7 +156,7 @@
     };
 
     mouse_ps2_input_listener: mouse_ps2_input_listener {
-        compatible = "zmk,input-listener-ps2";
+        compatible = "zmk,input-listener";
         status = "okay";
         device = <&mouse_ps2>;
         layer-toggle = <12>;
