@@ -159,8 +159,5 @@
         compatible = "zmk,input-listener";
         status = "okay";
         device = <&mouse_ps2>;
-        layer-toggle = <12>;
-        layer-toggle-delay-ms = <250>;
-        layer-toggle-timeout-ms = <250>;
     };
 };
