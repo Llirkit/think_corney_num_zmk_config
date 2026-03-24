@@ -3,8 +3,8 @@
  */
 
 
-// Enable power domain on oled display
-&oled {
+// Enable power domain on nice!view display
+&nice_view {
     power-domain = <&pd_ext_power>;
 };
 

@@ -1,2 +1,26 @@
 .DS_Store
 /keymap_img/keymap.yaml
+
+# Local west workspace and fetched dependencies
+/.west/
+/zmk/
+/zephyr/
+/modules/
+/kb_zmk_ps2_mouse_trackpoint_driver/
+/zmk-auto-layer/
+/optional/
+
+# Local build outputs
+/build*/
+*.log
+*.stdout.log
+*.stderr.log
+*.status.json
+
+# Local helper scripts
+/codex_west_build.cmd
+/codex_west_build.ps1
+/codex_west_build_monitored.ps1
+
+# Local helper headers
+/config/zmk-nodefree-config/keypos_def/keypos_54keys.h

@@ -35,21 +35,24 @@
 };
 
 #ifdef HAS_CAPSLOCK
-    caps_word_capslock: caps_word_capslock {
-        compatible = "zmk,behavior-caps-word";
-        #binding-cells = <0>;
-        continue-list = <
-          UNDERSCORE MINUS
-          LCTRL LALT LGUI LSHFT
-          RCTRL RALT RGUI RSHFT
-          BACKSPACE
-        >;
+/ {
+    behaviors {
+        caps_word_capslock: caps_word_capslock {
+            compatible = "zmk,behavior-caps-word";
+            #binding-cells = <0>;
+            continue-list = <
+              UNDERSCORE MINUS
+              LCTRL LALT LGUI LSHFT
+              RCTRL RALT RGUI RSHFT
+              BACKSPACE
+            >;
+        };
     };
+};
 #endif
 
 #ifdef HAS_UROB
     &num_word {
-        layers = <NUM_WORD>;
         continue-list = <
             BACKSPACE DELETE DOT COMMA
             SLASH ASTERISK PLUS MINUS EQUAL DOLLAR

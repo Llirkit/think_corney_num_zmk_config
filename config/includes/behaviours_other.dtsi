@@ -92,7 +92,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             #ifdef HAS_UROB
-                bindings = <&lt NUM DEL>, <&num_word>;
+                bindings = <&lt NUM DEL>, <&num_word NUM_WORD>;
             #else
                 bindings = <&lt NUM DEL>, <&tog NUM>;
             #endif
@@ -113,7 +113,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             #ifdef HAS_UROB
-                bindings = <&kp RET>, <&nav_word>, <&kp RET>;
+                bindings = <&kp RET>, <&nav_word NAV_WORD>, <&kp RET>;
             #else
                 bindings = <&kp RET>, <&tog NAV>, <&kp RET>;
             #endif
@@ -143,7 +143,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             #ifdef HAS_UROB
-                bindings = <&mm_spc_unds_layer>, <&sym_word>;
+                bindings = <&mm_spc_unds_layer>, <&sym_word SYM_WORD>;
             #else
                 bindings = <&mm_spc_unds_layer>, <&tog SYM>;
             #endif
@@ -151,10 +151,9 @@
 
         #ifdef HAS_UROB
             nav_word: nav_word {
-                compatible = "zmk,behavior-caps-word";
+                compatible = "zmk,behavior-auto-layer";
                 label = "NAV_WORD";
-                #binding-cells = <0>;
-                layers = <NAV_WORD>;
+                #binding-cells = <1>;
                 continue-list = <
                     LEFT DOWN UP RIGHT
                     PG_UP PG_DN
@@ -172,10 +171,9 @@
 
         #ifdef HAS_UROB
             sym_word: sym_word {
-                compatible = "zmk,behavior-caps-word";
+                compatible = "zmk,behavior-auto-layer";
                 label = "sym_word";
-                #binding-cells = <0>;
-                layers = <SYM_WORD>;
+                #binding-cells = <1>;
                 continue-list = <
                     CARET AMPERSAND PLUS EQUAL MINUS SLASH PIPE
                     TILDE PERCENT UNDERSCORE EXCLAMATION DOLLAR SEMICOLON
@@ -202,10 +200,15 @@
             * Requires ZMK PR #1366.
             */
             swapper_cmd_tab: swapper {
-                compatible = "zmk,behavior-tri-state";
+                compatible = "zmk,behavior-macro";
                 label = "SWAPPER";
                 #binding-cells = <0>;
-                bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
+                wait-ms = <0>;
+                tap-ms = <0>;
+                bindings
+                    = <&macro_press &kp LGUI>
+                    , <&macro_tap &kp TAB>
+                    , <&macro_release &kp LGUI>;
                 //  ignored-key-positions = <x>;
             };
         #else

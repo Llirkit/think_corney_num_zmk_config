@@ -186,7 +186,7 @@
       layers = <BASE BASE_QWERTY NUM NUM_WORD>;
 
       #ifdef HAS_UROB
-        bindings = <&nav_word>;
+        bindings = <&nav_word NAV_WORD>;
       #else
         bindings = <&tog NAV_WORD>;
       #endif
@@ -200,7 +200,7 @@
       layers = <BASE BASE_QWERTY NAV NAV_WORD>;
 
       #ifdef HAS_UROB
-        bindings = <&num_word>;
+        bindings = <&num_word NUM_WORD>;
       #else
         bindings = <&tog NUM_WORD>;
       #endif
